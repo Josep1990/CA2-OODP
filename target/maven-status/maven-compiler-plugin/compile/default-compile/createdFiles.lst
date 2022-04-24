@@ -1,0 +1,8 @@
+com\ca2\companies\BigCappa.class
+com\ca2\companies\depot\Depot.class
+com\ca2\Main.class
+com\ca2\companies\product\Product.class
+com\ca2\companies\Company.class
+com\ca2\companies\BigAlpha.class
+com\ca2\companies\BigBeta.class
+com\ca2\factory\CompanyFactory.class
