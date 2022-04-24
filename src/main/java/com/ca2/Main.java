@@ -32,16 +32,13 @@ public class Main {
         Company bigAlpha = factory.getCompany("BIG-ALPHA"); // BigAlpha.getInstance();
         Company bigBeta = BigBeta.getInstance();
         Company bigCappa = BigCappa.getInstance();
-        
-          bigCappa.createTransactions(bigAlpha, bigBeta);
+
+        bigCappa.createTransactions(bigAlpha, bigBeta);
         bigAlpha.createTransactions(bigBeta, bigCappa);
         bigBeta.createTransactions(bigCappa, bigAlpha);
-      
-        
-        
+
         View v = new View();
         v.mainMenu();
-        
 
 //        
 //        System.out.println(bigAlpha.getDepots()[6].getExternalProducts().size());

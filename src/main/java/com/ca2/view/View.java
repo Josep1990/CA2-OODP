@@ -47,7 +47,7 @@ public class View {
 
                 case 2:
                     menuTwo();
-                    
+
                 case 3:
                     System.out.println("Thank you for using our System.");
                     System.exit(0);
@@ -59,42 +59,50 @@ public class View {
     }
 
     private void menuOne() {
-        
+
         System.out.println("Find All Transactios bellow");
         showAllTransactions(bigAlpha);
         showAllTransactions(bigBeta);
         showAllTransactions(bigCappa);
         initMainMenu();
-        
+
     }
-    
-    private void menuTwo(){
-        try{
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Choose one company in the list bellow to see it's transactions");
-        System.out.println("1 - " + bigAlpha.getName());
-        System.out.println("2 - " + bigBeta.getName());
-        System.out.println("3 - " + bigCappa.getName());
-        System.out.println("Please enter the Code for the company: ");
-        int input1 = Integer.parseInt(sc.nextLine());
-         switch (input1) {
+
+    private void menuTwo() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Choose one company in the list bellow to see it's transactions");
+            System.out.println("1 - " + bigAlpha.getName());
+            System.out.println("2 - " + bigBeta.getName());
+            System.out.println("3 - " + bigCappa.getName());
+            System.out.println("4 - Go back to Main Menu.");
+            System.out.println("Please enter the Code for the company: ");
+            int input1 = Integer.parseInt(sc.nextLine());
+            switch (input1) {
 
                 case 1:
-                    menuOne();
+                    innerMenuTwo(bigAlpha);
 
                 case 2:
-                    menuTwo();
-                    
+                    innerMenuTwo(bigBeta);
+
                 case 3:
-                    System.out.println("Thank you for using our System.");
-                    System.exit(0);
+                    innerMenuTwo(bigCappa);
+
+                case 4:
+                    initMainMenu();
+
             }
-        }catch(IllegalArgumentException e){
-        
+        } catch (IllegalArgumentException e) {
+            
+           System.out.println("Input not valid, please try again.");
+
         }
 
-        
-    
+    }
+
+    private void innerMenuTwo(Company company) {
+
     }
 
     private void showAllTransactions(Company company) {
