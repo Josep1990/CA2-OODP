@@ -10,15 +10,15 @@ package com.ca2.companies;
  * @author josep
  */
 public class BigBeta extends Company {
-    
-          private static BigBeta instance = null;
-      
-        public static synchronized BigBeta getInstance() {
+ //this is the the Big Beta company get instance method as it is static was not possible to create it in the super class 
+    private static BigBeta instance = null;
+ //thread safe instanciation 
+    public static synchronized Company getInstance() {
 
         if (instance == null) {
             instance = new BigBeta();
         }
         return instance;
     }
-    
+
 }

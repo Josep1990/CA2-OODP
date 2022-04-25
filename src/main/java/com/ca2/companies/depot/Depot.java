@@ -12,14 +12,16 @@ import java.util.List;
 /**
  *
  * @author josep
+ * this class is the blueprint of a Depot
  */
 public class Depot {
-
+    //important field for a depot creation
     private final int NATIVE_PRODUCT_MAX_LIMIT = 40;
     private final int NATIVE_PRODUCT_MIN_LIMIT = 15;
     private final int EXTERNAL_PRODUCT_MAX_LIMIT = 30;
     private final int EXTERNAL_PRODUCT_MIN_LIMIT = 2;
     private int depotCode;
+    private String nativeProductName;
     private int nativeProductAmount;
     private int externalProductAmount;
     private int deliveryPrice;
@@ -27,18 +29,11 @@ public class Depot {
     private List<Product> nativeProducts;
     private List<Product> externalProducts;
     private List<String> transactions = new ArrayList<>();
-
+    
+    //default constructor
     public Depot() {
     }
-
-    public Depot(int depotCode, int nativeProductAmount, int externalProductAmount, int deliveryPrice, int allowance) {
-        this.depotCode = depotCode;
-        this.nativeProductAmount = nativeProductAmount;
-        this.externalProductAmount = externalProductAmount;
-        this.deliveryPrice = deliveryPrice;
-        this.allowance = allowance;
-    }
-
+    //getters and setters
     public int getNATIVE_PRODUCT_MAX_LIMIT() {
         return NATIVE_PRODUCT_MAX_LIMIT;
     }
@@ -62,6 +57,14 @@ public class Depot {
     public void setDepotCode(int depotCode) {
         this.depotCode = depotCode;
     }
+
+    public String getNativeProductName() {
+        return nativeProductName;
+    }
+
+    public void setNativeProductName(String nativeProductName) {
+        this.nativeProductName = nativeProductName;
+    } 
 
     public int getNativeProductAmount() {
         return nativeProductAmount;
@@ -118,10 +121,11 @@ public class Depot {
     public void setTransactions(List<String> transactions) {
         this.transactions = transactions;
     }
-
+//to string method
     @Override
     public String toString() {
         return "Depot Code : " + depotCode
+                + "\nNative Product: " + nativeProductName
                 + "\nNative Product Amount: " + nativeProductAmount
                 + "\nExternal Product Amount: " + externalProductAmount
                 + "\nDelivery Price: " + deliveryPrice

@@ -10,10 +10,10 @@ package com.ca2.companies;
  * @author josep
  */
 public class BigCappa extends Company {
-
-      private static BigCappa instance = null;
-      
-        public static synchronized BigCappa getInstance() {
+ //this is the the Big Cappa company get instance method as it is static was not possible to create it in the super class 
+    private static BigCappa instance = null;
+ //thread safe instanciation 
+    public static synchronized Company getInstance() {
 
         if (instance == null) {
             instance = new BigCappa();

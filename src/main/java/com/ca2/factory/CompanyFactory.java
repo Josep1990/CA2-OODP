@@ -21,18 +21,23 @@ import java.util.Random;
  */
 public class CompanyFactory {
 
+    /**
+     * This class is part of the Factory Design Patter and also holds method important to the construction of a company
+     */
+    //fields with company name location and native product
     private final String bigAlphaName = "BIG-ALPHA";
     private final String alphaLocation = "75, Oxford - Industrial District";
     private final String alphaNativeProduct = "WIDGETS";
-    
+
     private final String bigBetaName = "BIG-BETA";
     private final String betaLocation = "35, Austing Street, Mullingar - M5 CD87";
     private final String betaNativeProduct = "BRACES";
-    
+
     private final String bigCappaName = "BIG-CAPPA";
     private final String cappaLocation = "98, Woodburn Park, Derry";
     private final String cappaNativeProduct = "CRATES";
-
+    
+    //this method initialize all the companies creatinf native product and depots
     public void init() {
 
         startCompany(getCompany(bigAlphaName), bigAlphaName, alphaLocation, alphaNativeProduct);
@@ -40,7 +45,7 @@ public class CompanyFactory {
         startCompany(getCompany(bigCappaName), bigCappaName, cappaLocation, cappaNativeProduct);
 
     }
-
+    //method of the factory design patter that returns an instance of each company
     public Company getCompany(String company) {
 
         if (company == null) {
@@ -59,7 +64,7 @@ public class CompanyFactory {
         return null;
 
     }
-
+    //this method start a company create it's depot and add native products to it
     private void startCompany(Company company, String companyName, String companyLocation, String nativeProduct) {
 
         int length = company.getDepots().length;
@@ -77,7 +82,7 @@ public class CompanyFactory {
         company.setDepots(depots);//set company depot            
 
     }
-
+    //this method createa depot with a array list of products it also set the min an max limit for depot operation
     private Depot createDepot(String productCode) {
         Depot depot = new Depot();
         Random r = new Random();
@@ -90,6 +95,7 @@ public class CompanyFactory {
         int depotAllowance = r.nextInt(maxAllowance - minAllowance) + minAllowance; //allowance for depot
         int deliveryPrice = r.nextInt(maxDeliveryPrice - minDeliveryPrice) + minDeliveryPrice; //delivery price    
         depot.setAllowance(depotAllowance);
+        depot.setNativeProductName(productCode);
         depot.setDeliveryPrice(deliveryPrice);
         depot.setNativeProducts(createNativeProducts(productCode, maxDepotNativeProductLimit, minDepotNativeProductLimit));// create the native product for each depot
         depot.setNativeProductAmount(depot.getNativeProducts().size());

@@ -8,13 +8,14 @@ package com.ca2.companies.product;
 /**
  *
  * @author josep
+ * this class is the bblue print of the product object
  */
 public class Product {
-
+    //necessary fields for product creation
     private String code;
     private int price;
     private boolean isNative;
-
+    //simple constructors
     public Product() {
     }
 
@@ -23,7 +24,7 @@ public class Product {
         this.price = price;
         this.isNative = isNative;
     }
-
+    //getters and setters
     public String getCode() {
         return code;
     }
@@ -47,10 +48,10 @@ public class Product {
     public void setIsNative(boolean isNative) {
         this.isNative = isNative;
     }
-
+    //to string method
     @Override
     public String toString() {
-        return "Product Code: " + code + " | price: " + price + " | Native Product: " + isNative;
+        return "Product Code: " + code + " | price: " + price;
     }
 
 }
